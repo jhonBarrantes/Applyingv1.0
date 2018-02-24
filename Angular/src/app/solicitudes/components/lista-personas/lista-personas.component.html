@@ -1,0 +1,13 @@
+<h2 class="title">
+  Lista de Personas
+  <div class="actions" *ngIf="editable">
+    <button [routerLink]="'/nuevaPersona'">Agregar</button>
+  </div>
+</h2>
+<div class="content">
+  <app-item-persona *ngFor="let persona of listaPersonas"
+            [persona]="persona"
+            [editable]="editable"
+            (eliminado)="actualizarLista()">
+  </app-item-persona>
+</div>
