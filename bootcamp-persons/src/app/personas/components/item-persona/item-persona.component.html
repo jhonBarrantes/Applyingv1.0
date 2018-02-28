@@ -1,0 +1,21 @@
+<h3 class="title">Persona: {{persona.id}}</h3>
+<div class="actions" >
+  <button [routerLink]="'/editarPersona/'+persona.id">Modificar</button>
+  <button (click)="eliminarPersona()">Eliminar</button>
+</div>
+<div (click)="mostrar()" class="content">
+  <p>
+    Id: {{persona.id}}
+  </p>
+  <p>
+    Nombre: {{persona.nombre}}
+  </p>
+  <p>
+    Tipo de Documento: {{persona.tipoDocumento}}
+</p>
+  <p>
+    Nro de Documento: {{persona.nroDocumento}}
+  </p>
+    
+
+</div>

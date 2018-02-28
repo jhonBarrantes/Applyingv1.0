@@ -1,0 +1,26 @@
+<h3 *ngIf="!persona?.id">Agregar persona</h3>
+<h3 *ngIf="persona?.id">Editar persona {{persona.id}}</h3>
+
+<form (submit)="enviarPersona(persona)">
+  <h3>Persona</h3>
+  <p>
+
+    Nombre:
+    <input type="text" [ngModel]="persona?.nombre" (ngModelChange)="persona.nombre=$event" name="nombre"/>
+  </p>
+
+  <p>
+    <label>Apellidos:</label>
+    <input type="text" [ngModel]="persona?.apellidos" (ngModelChange)="persona.apellidos=$event" name="apellidos"/>
+  </p>
+  <p>
+      <label>Tipo de Documento:</label>
+      <input type="text" [ngModel]="persona?.tipoDocumento" (ngModelChange)="persona.tipoDocumento=$event" name="tipoDocumento"/>
+  </p>
+  <p>
+      <label>Nro de documento:</label>
+      <input type="text" [ngModel]="persona?.nroDocumento" (ngModelChange)="persona.nroDocumento=$event" name="nroDocumento"/>
+  </p>  
+  <button type="submit">Enviar</button>
+  <button type="button" (click)="cancelar()">Cancelar</button>
+</form>
