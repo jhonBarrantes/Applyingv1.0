@@ -19,16 +19,24 @@ export class ListItemSolicitudComponent implements OnInit {
   @Output()
   eliminado: EventEmitter<any> = new EventEmitter();
 
+  @Output()
+  clic: EventEmitter<any> = new EventEmitter();
+
   constructor(private solicitudService: SolicitudesService) { }
 
   ngOnInit() {
   }
 
   eliminarSolicitud() {
-    alert('eliminar?')
     if (confirm(`Desea eliminar la solicitud ${this.solicitud.id}?`)) {
       this.solicitudService.delete(this.solicitud.id).subscribe(() => this.eliminado.emit(this.solicitud.id));
     }
   }
+
+  /*alertaSolicitud(){
+     alert(this.solicitud.institucionNombre +" - "+  this.solicitud.solicitanteNombre);
+     this.clic.emit(this.solicitanteNombre);
+  }*/
+
 
 }

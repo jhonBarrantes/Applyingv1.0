@@ -8,6 +8,7 @@
   <ap-list-item-solicitud *ngFor="let solicitud of solicitudes"
                           [solicitud]="solicitud"
                           [editable]="editable"
-                          (eliminado)="actualiarSolicitudes()">
-                </ap-list-item-solicitud>
+                          (eliminado)="actuali()">
+                          (clic)="alertaSolicitud($event)"
+                          </ap-list-item-solicitud>
 </div>

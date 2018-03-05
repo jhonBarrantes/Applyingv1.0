@@ -5,19 +5,19 @@ public class Solicitud {
 	private Long institucionId; 
 	private String institucionNombre;
 	private Long estadoId;
-	private String estadoDes;
+	private String estadoNombre;
 
 	public Solicitud() {
 		super();
 	}
 
-	public Solicitud(Long id, Long institucionId, String institucionNombre, Long estadoId, String estadoDes) {
+	public Solicitud(Long id, Long institucionId, String institucionNombre, Long estadoId, String estadoNombre) {
 		super();
 		this.id = id;
 		this.institucionId = institucionId;
 		this.institucionNombre = institucionNombre;
 		this.estadoId = estadoId;
-		this.estadoDes = estadoDes;
+		this.estadoNombre = estadoNombre;
 	}
 
 	public Long getId() {
@@ -52,18 +52,18 @@ public class Solicitud {
 		this.estadoId = estadoId;
 	}
 
-	public String getEstadoDes() {
-		return estadoDes;
+	public String getEstadoNombre() {
+		return estadoNombre;
 	}
 
-	public void setEstadoDes(String estadoDes) {
-		this.estadoDes = estadoDes;
+	public void setEstadoNombre(String estadoNombre) {
+		this.estadoNombre = estadoNombre;
 	}
 
 	@Override
 	public String toString() {
 		return "Solicitud [id=" + id + ", institucionId=" + institucionId + ", institucionNombre=" + institucionNombre
-				+ ", estadoId=" + estadoId + ", estadoDes=" + estadoDes + "]";
+				+ ", estadoId=" + estadoId + ", estadoNombre=" + estadoNombre + "]";
 	}
 
 	

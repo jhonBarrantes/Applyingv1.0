@@ -1,9 +1,12 @@
 package com.applying.demo.spring.controller;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.applying.demo.spring.bean.MensajeResultado;
 import com.applying.demo.spring.bean.Persona;
 import com.applying.demo.spring.bean.ResultMessage;
+import com.applying.demo.spring.bean.SolicitudBean;
 import com.applying.demo.spring.bean.SuccessMessageEnum;
+import com.applying.demo.spring.bean.SucessMessageEnum;
 import com.applying.demo.spring.service.PersonaService;
+
+import java.util.Locale;
 
 @RestController
 public class RestPersonaController {
@@ -42,26 +49,31 @@ public class RestPersonaController {
 		return new ResponseEntity<ResultMessage>(result,SuccessMessageEnum.MENSAJE_SOLICITUD_BUSQUEDA_EXITO.getHttpStatus());
 	}
 	
+
+	
 	@RequestMapping(value="/persona", method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<ResultMessage> agregarPersona(Persona persona){
+	public ResponseEntity<ResultMessage> agregarPersona(@RequestBody Persona persona,Errors erros, Locale objLocale) throws Exception{
 		System.out.println("Agregar Persona:" + persona.toString());
+		long personaId = personaService.AgregarPersona(persona);
 		ResultMessage response = new ResultMessage(SuccessMessageEnum.MENSAJE_SOLICITUD_REGISTRO_EXITO);
-		response.setData(personaService.AgregarPersona(persona));
+		response.setData(personaId);
 		return new ResponseEntity<ResultMessage>(response,SuccessMessageEnum.MENSAJE_SOLICITUD_REGISTRO_EXITO.getHttpStatus());
 	}
+
 	
-	@RequestMapping(value="/persona", method= RequestMethod.PUT, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<ResultMessage> actualizarPersona(@PathVariable("id")Long id,@RequestBody Persona persona){
+	@RequestMapping(value="/persona/{id}", method= RequestMethod.PUT, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ResultMessage> actualizarPersona(@PathVariable("id")Long id,@RequestBody Persona persona,Locale objLocale){
 		System.out.println("Modificar Persona:" + id);
 		persona.setId(id);
+		System.out.println("Persona: "+ persona.toString());
 		personaService.ActualizarPersona(persona);
 		ResultMessage result = new ResultMessage(SuccessMessageEnum.MENSAJE_SOLICITUD_ACTUALIZACION_EXITO);
 		result.setData(persona.getId());
 		return new ResponseEntity<ResultMessage>(result,SuccessMessageEnum.MENSAJE_SOLICITUD_ACTUALIZACION_EXITO.getHttpStatus());
 	}
 	
-	@RequestMapping(value="/persona", method=RequestMethod.DELETE, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<ResultMessage> eliminarPersona(Long id){
+	@RequestMapping(value="/persona/{id}", method=RequestMethod.DELETE, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ResultMessage> eliminarPersona(@PathVariable("id")Long id){
 		System.out.println("Eliminar Persona: "+ id);
 		ResultMessage result = new ResultMessage(SuccessMessageEnum.MENSAJE_SOLICITUD_ELIMINACION_EXITO);
 		personaService.EliminarLibro(id);

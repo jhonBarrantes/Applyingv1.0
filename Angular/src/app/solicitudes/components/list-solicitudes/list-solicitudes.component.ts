@@ -9,12 +9,17 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'ap-list-solicitudes',
   templateUrl: './list-solicitudes.component.html',
+  styleUrls: ['./list-solicitudes.component.css']
 })
 export class ListSolicitudesComponent implements OnInit, OnDestroy {
 
+  
   solicitudes: Solicitud[];
 
   subscription: Subscription;
+
+  @Input()
+  solicitud: Solicitud;
 
   @Input()
   editable: boolean;
@@ -38,5 +43,10 @@ export class ListSolicitudesComponent implements OnInit, OnDestroy {
     }
     this.subscription = this.solicitudService.getAll().subscribe(solicitudes => this.solicitudes = solicitudes);
   }
+
+  alertaSolicitud(){
+    alert('Solicitud.id');
+  }
+
 
 }

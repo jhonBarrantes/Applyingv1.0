@@ -4,18 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListSolicitudesComponent } from './components/list-solicitudes/list-solicitudes.component';
 import { FormSolicitudComponent } from './components/form-solicitud/form-solicitud.component';
 
-import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
-import { FormPersona } from './components/form-persona/form-persona.component';
-
 const routes: Routes = [
   { path: 'solicitudes', component: ListSolicitudesComponent },
   { path: 'nuevaSolicitud', component: FormSolicitudComponent},
   { path: 'editarSolicitud/:id', component: FormSolicitudComponent},
-
-
-  {path: 'personas',component:ListaPersonasComponent},
-  {path: 'agregarPersona', component:FormPersona},
-  {path: 'editarPersona/:id', component:FormPersona},
 ];
 
 @NgModule({
@@ -23,7 +15,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class PersonasRoutingModule {
+export class SolicitudesRoutingModule {
 
 
 }

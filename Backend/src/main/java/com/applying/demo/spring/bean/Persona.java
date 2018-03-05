@@ -10,14 +10,14 @@ public class Persona {
 	private String nroDocumento;
 	private List<Solicitud> listaSolicitudes;
 	
-	public Persona(Long id,String nombre, String apellidos, String tipoDocumento, String nroDocument,
+	public Persona(Long id,String nombre, String apellidos, String tipoDocumento, String nroDocumento,
 			List<Solicitud> listaSolicitudes) {
 		super();
 		this.id=id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.tipoDocumento = tipoDocumento;
-		this.nroDocumento = nroDocument;
+		this.nroDocumento = nroDocumento;
 		this.listaSolicitudes = listaSolicitudes;
 	}
 	public Persona() {
@@ -49,7 +49,7 @@ public class Persona {
 	public void setTipoDocumento(String tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
-	public String getNroDocument() {
+	public String getNroDocumento() {
 		return nroDocumento;
 	}
 	public void setNroDocument(String nroDocument) {

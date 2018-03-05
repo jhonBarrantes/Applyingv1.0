@@ -1,0 +1,10 @@
+<h2>Lista de personas</h2>
+<button [routerLink]="'/agregarPersona'">Agregar</button>
+<div class="content">
+  <app-item-persona *ngFor="let persona of personas"
+    [persona]="persona"
+    (eliminado)="actualizarLista()" 
+    (clic)="mostrarPersona()">
+      
+  </app-item-persona>
+</div>

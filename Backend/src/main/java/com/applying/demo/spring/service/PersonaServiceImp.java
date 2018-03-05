@@ -7,10 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.applying.demo.spring.bean.Libro;
 import com.applying.demo.spring.bean.Persona;
 import com.applying.demo.spring.bean.Solicitud;
-import com.applying.demo.spring.bean.SolicitudBean;
 
 @Service
 public class PersonaServiceImp implements PersonaService{
@@ -63,7 +61,7 @@ public class PersonaServiceImp implements PersonaService{
 		resSolicitudBean.setApellidos(objPersona.getApellidos());
 		resSolicitudBean.setId(objPersona.getId());
 		resSolicitudBean.setTipoDocumento(objPersona.getTipoDocumento());
-		resSolicitudBean.setNroDocument(objPersona.getNroDocument());
+		resSolicitudBean.setNroDocument(objPersona.getNroDocumento());
 		resSolicitudBean.setListaSolicitudes(objPersona.getListaSolicitudes());		
 	}
 

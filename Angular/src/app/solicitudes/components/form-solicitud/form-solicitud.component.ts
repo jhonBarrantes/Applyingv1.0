@@ -20,7 +20,6 @@ export class FormSolicitudComponent implements OnInit {
   ngOnInit() {
     const id: string = this.activateRoute.snapshot.paramMap.get('id');
     if (!id) {
-      this.solicitud = new Solicitud();
     } else {
       this.solicitudesServices.get(parseInt(id)).subscribe(solicitud => this.solicitud = solicitud);
     }

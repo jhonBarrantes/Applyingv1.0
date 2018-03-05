@@ -1,8 +1,6 @@
 package com.applying.demo.spring.service;
 
 import java.util.List;
-
-import com.applying.demo.spring.bean.Libro;
 import com.applying.demo.spring.bean.Persona;
 
 public interface PersonaService {

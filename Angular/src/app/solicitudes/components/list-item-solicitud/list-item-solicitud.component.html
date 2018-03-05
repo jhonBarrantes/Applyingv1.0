@@ -1,11 +1,11 @@
 <h3 class="title">
   Solicitud: {{solicitud.id}}
-  <div class="actions" *ngIf="editable">
+  <div class="actions"  *ngIf="editable">
     <button [routerLink]="'/editarSolicitud/'+solicitud.id">editar</button>
     <button (click)="eliminarSolicitud()">borrar</button>
   </div>
 </h3>
-<div class="content">
+<div (click)="alertaSolicitud()" class="content">
   <p>
     Institución: {{solicitud.institucionNombre}}
   </p>

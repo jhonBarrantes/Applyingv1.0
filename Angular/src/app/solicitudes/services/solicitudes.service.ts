@@ -20,6 +20,7 @@ export class SolicitudesService {
 
   constructor( private http: HttpClient ) {
     this.resourceUrl = SolicitudesConfig.httpResource.solicitudes;
+    
   }
 
   getAll(): Observable<Solicitud[]> {
