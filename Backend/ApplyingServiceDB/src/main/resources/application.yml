@@ -1,0 +1,22 @@
+spring:
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: admin
+  thymeleaf:
+    suffix: .jsp
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#      naming:
+#        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.MySQL5Dialect

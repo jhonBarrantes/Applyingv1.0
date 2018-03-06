@@ -1,0 +1,3 @@
+Spring-mvc-Personas es el ejercicio solicitado
+ApplyingserviceDB es el servicio mediante base de datos, con un mapeo simple, no hace uso de uno a muchos, pero está integrado para obtener los elementos de ambas tablas como si fuese relacionado, funciona con postman, pero presenta un bloqueo por parte de spring security.
+La base de datos fue en mysql
